@@ -27,14 +27,14 @@ class CreateUsersTable extends Migration
             $table->string('direccion',40);
             $table->string('ciudad',60);
             $table->string('region',60);
-            $table->integer('idImagenUsuario')->nullable();
             $table->string('resenaPersonal');
             $table->boolean('activo')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-                
+            $table->foreignId('idImagenUsuario')->constrained('imagenes_usuario')//las foreing las agregaremos al final de la tabla
+            ->onDelete('cascade');
         });
     }
 

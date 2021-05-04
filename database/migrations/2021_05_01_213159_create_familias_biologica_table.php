@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePublicacionesTable extends Migration
+class CreateFamiliasBiologicaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePublicacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('publicaciones', function (Blueprint $table) {
+        Schema::create('familias_biologica', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('nombreFamiliaBiologica',15);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreatePublicacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publicaciones');
+        Schema::dropIfExists('familias_biologica');
     }
 }
