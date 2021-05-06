@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId('idImagenUsuario')->constrained('imagenes_usuario')//las foreing las agregaremos al final de la tabla
+            $table->foreignId('idImagenUsuario')->nullable()->constrained('imagenes_usuario')//las foreing las agregaremos al final de la tabla
             ->onDelete('cascade');
         });
     }
