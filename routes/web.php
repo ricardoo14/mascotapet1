@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GestionUserController;
 use App\Http\Controllers\MascotaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -36,3 +37,5 @@ Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/mascotas',MascotaController::class);
+
+Route::resource('/usuarios',GestionUserController::class);
