@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mascota;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class MascotaController extends Controller
+class PerfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class MascotaController extends Controller
      */
     public function index()
     {
-        //
-        return view('usuarios.index');
+        $user = Auth::user();
+        return view('usuarios.perfil',['use'=>$user]);
     }
 
     /**
@@ -57,8 +58,8 @@ class MascotaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   $user = Auth::user();
+        return view('usuarios.perfil-editar',['id'=>Auth::user()->$id],['use'=>$user]);
     }
 
     /**
@@ -70,7 +71,19 @@ class MascotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->nombre = $request->get('nombre'); //aqui estaria sacando los datos del formulario edit
+        $user->segundoNombre = $request->get('segundoNombre');
+        $user->apellido = $request->get('apellido');
+        $user->segundoApellido = $request->get('segundoApellido');
+        $user->telefono = $request->get('telefono');
+        $user->direccion = $request->get('direccion');
+        $user->ciudad = $request->get('ciudad');
+        $user->region = $request->get('region');
+        $user->resenaPersonal = $request->get('resenaPersonal');
+        $user->update();
+
+        return redirect('/perfil');
     }
 
     /**

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class AdministradorController extends Controller
+
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -57,6 +59,7 @@ class AdministradorController extends Controller
     public function edit($id)
     {
         //
+        
     }
 
     /**

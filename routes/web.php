@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\GestionUserController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,10 +34,20 @@ Route::get('/register2', function () {
     return view('register2');
 });
 
+
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/mascotas',MascotaController::class);
+
 
 Route::resource('/usuarios',GestionUserController::class);
+Route::resource('/perfil',PerfilController::class);
+
+/* Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
+Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')
+->middleware('auth');
+Route::put('/perfileditar/{id}',[UsuarioController::class,'update']); */
+
+
+
