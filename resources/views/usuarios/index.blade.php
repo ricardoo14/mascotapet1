@@ -48,15 +48,19 @@
                         <td>{{ $u->rut }}</td>
                         <td>{{ $u->email }}</td>
                         <td>
-                            <form action="{{ route('usuarios.destroy', $u->id) }}" method="POST">
-                                <a href="{{ route('usuarios.show', $u->id) }}"><button type="button"
-                                        class="btn btn-secondary">Ver</button></a>
+                            <a href="{{ route('usuarios.show', $u->id) }}"><button type="button" class="btn btn-secondary">Ver</button></a>
+                           {{--  <form action="{{ route('usuarios.destroy', $u->id) }}" method="POST"> 
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                               <input type="submit" class="btn btn-danger" value="Eliminar">
+                            </form> --}}
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$u->id}}">
+                                Eliminar
+                              </button>
                         </td>
                     </tr>
+                    @include('usuarios.delete')
                 @endforeach
             </tbody>
         </table>
