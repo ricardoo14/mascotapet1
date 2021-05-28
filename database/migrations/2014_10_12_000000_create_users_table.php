@@ -31,10 +31,9 @@ class CreateUsersTable extends Migration
             $table->boolean('activo')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('imagenUsuario')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId('idImagenUsuario')->nullable()->constrained('imagenes_usuario')//las foreing las agregaremos al final de la tabla
-            ->onDelete('cascade');
         });
     }
 

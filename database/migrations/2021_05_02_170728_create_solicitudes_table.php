@@ -15,11 +15,19 @@ class CreateSolicitudesTable extends Migration
     {
         Schema::create('solicitudes', function (Blueprint $table) {
             $table->id();
-            $table->string('motivacion');
+            $table->string('nombreMascota',30);
+            $table->string('ciudad',60);
+            $table->string('region',60);
+            $table->string('estadoEsterilizacion');
+            $table->string('descripcion');
+            $table->string('familiaBiologica');
+            $table->string('vacunas');
+            $table->string('descripcionSalud');
+            $table->integer('edad');
             $table->timestamps();
-            $table->foreignId('idUsuario')->constrained('users');
-            $table->foreignId('idPublicacion')->constrained('publicaciones');
-            $table->foreignId('idEstadoSolicitud')->constrained('estados_solicitud');
+            $table->foreignId('idUsuario')->constrained('users')->onDelete('cascade');
+            $table->foreignId('idEstadoSolicitud')->nullable()->constrained('estados_solicitud');
+            $table->foreignId('idAlbum')->nullable()->constrained('albumes');
         });
     }
 

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CrearSolicitudFormRequest;
+use App\Models\Solicitud;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\EditarPerfilFormRequest;
 
-class PerfilController extends Controller
+
+class SolicitudController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('usuarios.perfil',['use'=>$user]);
+        
+        return view('solicitudes.index',['solici'=>Solicitud::all()->where('idUsuario',auth()->id())]);
+        //con esta condicion where nos mostrara solo nuestras solicitudes
     }
 
     /**
@@ -28,6 +29,7 @@ class PerfilController extends Controller
     public function create()
     {
         //
+        return view('solicitudes.create');
     }
 
     /**
@@ -36,9 +38,22 @@ class PerfilController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CrearSolicitudFormRequest $request)
     {
         //
+        $solicitud = new Solicitud();
+        $solicitud->nombreMascota = request('nombreMascota');
+        $solicitud->edad = request('edad');
+        $solicitud->ciudad = request('ciudad');
+        $solicitud->region = request('region');
+        $solicitud->descripcion = request('descripcion');
+        $solicitud->familiaBiologica = request('familiaBiologica');
+        $solicitud->vacunas = request('vacunas');
+        $solicitud->descripcionSalud = request('descripcionSalud');
+        $solicitud->estadoEsterilizacion = request('estadoEsterilizacion');
+        $solicitud->idUsuario = auth()->id();
+        $solicitud->save();
+        return redirect('solicitudes');
     }
 
     /**
@@ -49,7 +64,7 @@ class PerfilController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('solicitudes.show',['s'=>Solicitud::findOrFail($id)]);
     }
 
     /**
@@ -59,8 +74,8 @@ class PerfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   $user = Auth::user();
-        return view('usuarios.perfil-editar',['id'=>Auth::user()->$id],['use'=>$user]);
+    {
+        //
     }
 
     /**
@@ -70,21 +85,9 @@ class PerfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditarPerfilFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->nombre = $request->get('nombre'); //aqui estaria sacando los datos del formulario edit
-        $user->segundoNombre = $request->get('segundoNombre');
-        $user->apellido = $request->get('apellido');
-        $user->segundoApellido = $request->get('segundoApellido');
-        $user->telefono = $request->get('telefono');
-        $user->direccion = $request->get('direccion');
-        $user->ciudad = $request->get('ciudad');
-        $user->region = $request->get('region');
-        $user->resenaPersonal = $request->get('resenaPersonal');
-        $user->update();
-
-        return redirect('/perfil');
+        //
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFamiliasBiologicaTable extends Migration
+class CreateMeetingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateFamiliasBiologicaTable extends Migration
      */
     public function up()
     {
-        Schema::create('familias_biologica', function (Blueprint $table) {
+        Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreFamiliaBiologica',15);
+            $table->text('motivacion');
             $table->timestamps();
+            $table->foreignId('idUsuario')->constrained('users');
+            $table->foreignId('idPublicacion')->constrained('publicaciones');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateFamiliasBiologicaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('familias_biologica');
+        Schema::dropIfExists('meetings');
     }
 }

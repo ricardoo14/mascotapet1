@@ -174,13 +174,6 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-            <div class="form-group col-md-10">
-                <label >Imagen</label>
-                <input type="file" name="imagen" class="form-control"> 
-             </div>
-            </div>
-
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-5">
                     <button type="submit" class="btn btn-primary">

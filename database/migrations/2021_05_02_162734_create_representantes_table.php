@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePublicacionesTable extends Migration
+class CreateRepresentantesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreatePublicacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('publicaciones', function (Blueprint $table) {
+        Schema::create('representantes', function (Blueprint $table) {
             $table->id();
-            $table->date('fechaPublicacion');
             $table->timestamps();
             $table->foreignId('idUsuario')->constrained('users');
-            $table->foreignId('idMascota')->constrained('mascotas');
             $table->foreignId('idFundacion')->constrained('fundaciones');
-            $table->foreignId('idEstadoPublicacion')->constrained('estados_publicacion');
         });
     }
-    
-   
+
     /**
      * Reverse the migrations.
      *
@@ -32,6 +28,6 @@ class CreatePublicacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publicaciones');
+        Schema::dropIfExists('representantes');
     }
 }

@@ -19,7 +19,7 @@ class CreateFundacionesTable extends Migration
             $table->string('rut',10);
             $table->string('comuna',40);
             $table->timestamps();
-            $table->foreignId('idRepresentante')->constrained('representantes');
+            
         });
     }
 
