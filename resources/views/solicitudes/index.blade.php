@@ -14,6 +14,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nombre mascota</th>
                 <th scope="col">Fecha de solicitud</th>
+                <th scope="col">estado</th>
                 <th scope="col">Accion</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                     <th scope="row">{{$s->id}}</th>
                     <td>{{$s->nombreMascota}}</td>
                     <td>{{$s->created_at}}</td>
+                    <td>{{$s->idEstadoSolicitud.nombre}}</td>
                     <td><a href="{{ route('solicitudes.show', $s->id) }}"><button type="button" class="btn btn-secondary">Ver</button></a>
                     </td>
                 </tr>

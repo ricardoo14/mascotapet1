@@ -51,6 +51,7 @@ class SolicitudController extends Controller
         $solicitud->vacunas = request('vacunas');
         $solicitud->descripcionSalud = request('descripcionSalud');
         $solicitud->estadoEsterilizacion = request('estadoEsterilizacion');
+        $solicitud->idEstadoSolicitud = request('idEstadoSolicitud');
         $solicitud->idUsuario = auth()->id();
         $solicitud->save();
         return redirect('solicitudes');
@@ -87,7 +88,10 @@ class SolicitudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $solicitud = Solicitud::find($id);
+        $solicitud->idEstadoSolicitud = $request->get('idEstadoSolicitud');
+        $solicitud->update();
+        return redirect('/solicitudes');
     }
 
     /**
@@ -99,5 +103,10 @@ class SolicitudController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function cambio(Request $request, $id)
+    {   
+        
+        
     }
 }

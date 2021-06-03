@@ -47,10 +47,21 @@
                     <label>Descripcion</label>
                     <input type="text" name="descripcion" class="form-control" placeholder="Descripcion">
                 </div>
-                <div class="form-group col-md-6">
+                {{-- <div class="form-group col-md-6">
                     <label>Familia Biologica</label>
                     <input type="text" name="familiaBiologica" class="form-control" placeholder="Familia biologica">
-                </div>
+                </div> --}}
+                <select class="form-group col-md-6" name="familiaBiologica" >
+                    <option selected>Seleccione familia biologica</option>
+                    <option value="perro">Perro</option>
+                    <option value="gato">Gato</option>
+                    <option value="otro">Otro</option>
+                  </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>etsado</label>
+                <input type="text" name="idEstadoSolicitud" class="form-control" value="1" placeholder="Vacunas">
             </div>
 
             <div class="row">

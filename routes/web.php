@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GestionFundacionController;
 use App\Http\Controllers\GestionUserController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\SolicitudController;
@@ -30,12 +31,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('/usuarios',GestionUserController::class)->middleware('auth');
 Route::resource('/perfil',PerfilController::class)->middleware('auth');
+
 Route::resource('/solicitudes',SolicitudController::class)->middleware('auth');
+Route::resource('/gestionfundacion',GestionFundacionController::class)->middleware('auth');
 
 /* Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
 Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')
 ->middleware('auth');
-Route::put('/perfileditar/{id}',[UsuarioController::class,'update']); */
+Route::put('/solicitudes/{id}',[SolicitudController::class,'cambio']); 
+*/
+
 
 
 

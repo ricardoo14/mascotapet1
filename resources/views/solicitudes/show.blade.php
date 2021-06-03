@@ -16,7 +16,29 @@
 <p class="lead">Descripcion: {{$s->descripcion}}</p>
 <p class="lead">Ciudad: {{$s->ciudad}}</p>
 <p class="lead">Region: {{$s->region}}</p>
+<p class="lead">Region: {{$s->idEstadoSolicitud}}</p>
 
-  
+<form action="{{ route('solicitudes.update', $s->id) }}" method="POST">
+  @method('PATCH')
+  @csrf
+
+  <div class="form-group col-md-6">
+    <label>etsado</label>
+    <input type="text" name="idEstadoSolicitud" class="form-control" value="2" placeholder="Vacunas">
+</div>
+
+
+
+
+  <div class="row">
+      <div class="form-group col-md-6">
+          <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+          <button type="reset" class="btn btn-danger">Cancelar</button>
+      </div>
+  </div>
+</form> 
+
+
+
 </div>
 @endsection
