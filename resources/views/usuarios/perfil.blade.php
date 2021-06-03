@@ -9,6 +9,14 @@
             <div class="col-md-6"></div>
         </div>
         <form>
+            
+            <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{{asset(Auth::user()->avatar)}}"
+                        alt="" /></div>
+            </div>
+            </div>
+            
             <fieldset disabled>
                 <div class="row">
                     <div class="form-group col-md-6">

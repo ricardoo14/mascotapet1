@@ -63,6 +63,7 @@ class RegisterController extends Controller
             'region' => ['required', 'string', 'max:255'],
             'resenaPersonal' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'avatar'=>['sometimes','image','mimes:jpg,jpeg,bmp,svg,png'],
         ]);
     }
 
@@ -74,6 +75,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(request()->has('avatar')){
+            $avataruploaded = request()->file('avatar');
+            $avatarname = time() . '.' . $avataruploaded->getClientOriginalExtension();
+            $avatarpath = public_path('/images/');
+            $avataruploaded->move($avatarpath, $avatarname);
+            return User::create([
+                'nombre' => $data['nombre'],
+                'segundoNombre' => $data['segundoNombre'],
+                'apellido' => $data['apellido'],
+                'segundoApellido' => $data['segundoApellido'],
+                'rut' => $data['rut'],
+                'fechaDeNacimiento' => $data['fechaDeNacimiento'],
+                'email' => $data['email'],
+                'telefono' => $data['telefono'],
+                'direccion' => $data['direccion'],
+                'ciudad' => $data['ciudad'],
+                'region' => $data['region'],
+                'resenaPersonal' => $data['resenaPersonal'],
+                'password' => Hash::make($data['password']),
+                'avatar' => '/images/' . $avatarname,
+            ]);
+        }
+
         return User::create([
             'nombre' => $data['nombre'],
             'segundoNombre' => $data['segundoNombre'],
