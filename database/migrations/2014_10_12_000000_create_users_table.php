@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->default('/images/default-avatar.jpg');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreignId('idFundacion')->nullable()->constrained('fundaciones');
         });
     }
 
