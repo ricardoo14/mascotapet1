@@ -24,7 +24,7 @@
                     <th scope="row">{{$s->id}}</th>
                     <td>{{$s->nombreMascota}}</td>
                     <td>{{$s->created_at}}</td>
-                    <td>{{$s->idEstadoSolicitud.nombre}}</td>
+                    <td>{{$s->idEstadoSolicitud}}</td>
                     <td><a href="{{ route('solicitudes.show', $s->id) }}"><button type="button" class="btn btn-secondary">Ver</button></a>
                     </td>
                 </tr>

@@ -53,6 +53,7 @@ class RepresentanteController extends Controller
         $usuario->resenaPersonal = request('resenaPersonal');
         $usuario->password = request('password');
         $usuario->idFundacion = request('idFundacion');
+        $usuario->assignRole('Fundacion');
 
         $usuario->save();
         return redirect('/representantes');

@@ -15,9 +15,8 @@ class CreateAlbumesTable extends Migration
     {
         Schema::create('albumes', function (Blueprint $table) {
             $table->id();
-            $table->boolean('fotoPricipal');
+            $table->boolean('fotoPricipal')->nullable();
             $table->timestamps();
-            $table->foreignId('idFoto')->constrained('fotos');
         });
     }
 

@@ -17,6 +17,7 @@ class CreateFotosTable extends Migration
             $table->id();
             $table->string('url');
             $table->timestamps();
+            $table->foreignId('idAlbum')->constrained('albumes');
         });
     }
 
