@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\GestionFundacionController;
 use App\Http\Controllers\GestionUserController;
 use App\Http\Controllers\PerfilController;
@@ -35,6 +36,7 @@ Route::resource('/perfil',PerfilController::class)->middleware('auth');
 Route::resource('/solicitudes',SolicitudController::class)->middleware('auth');
 Route::resource('/gestionfundacion',GestionFundacionController::class)->middleware('auth');
 Route::resource('/representantes',RepresentanteController::class);
+Route::resource('/administradores',AdministradorController::class);
 
 /* Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
 Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')
