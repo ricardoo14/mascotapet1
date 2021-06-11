@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -50,17 +51,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nombre' => ['required', 'string', 'max:255'],
-            'segundoNombre' => ['required', 'string', 'max:255'],
-            'apellido' => ['required', 'string', 'max:255'],
-            'segundoApellido' => ['required', 'string', 'max:255'],
-            'rut' => ['required', 'string', 'max:255'],
+            'nombre' => ['required', 'string', 'max:40'],
+            'segundoNombre' => ['required', 'string', 'max:40'],
+            'apellido' => ['required', 'string', 'max:40'],
+            'segundoApellido' => ['required', 'string', 'max:40'],
+            'rut' => ['required', 'string', 'max:10','cl_rut'],
             'fechaDeNacimiento' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'telefono' => ['required', 'string', 'max:255'],
-            'direccion' => ['required', 'string', 'max:255'],
-            'ciudad' => ['required', 'string', 'max:255'],
-            'region' => ['required', 'string', 'max:255'],
+            'telefono' => ['required', 'string', 'max:12'],
+            'direccion' => ['required', 'string', 'max:40'],
+            'ciudad' => ['required', 'string', 'max:60'],
+            'region' => ['required', 'string', 'max:60'],
             'resenaPersonal' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'avatar'=>['sometimes','image','mimes:jpg,jpeg,bmp,svg,png'],
@@ -75,12 +76,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+
         if(request()->has('avatar')){
             $avataruploaded = request()->file('avatar');
             $avatarname = time() . '.' . $avataruploaded->getClientOriginalExtension();
             $avatarpath = public_path('/images/');
             $avataruploaded->move($avatarpath, $avatarname);
-            return User::create([
+            $user= User::create([
                 'nombre' => $data['nombre'],
                 'segundoNombre' => $data['segundoNombre'],
                 'apellido' => $data['apellido'],
@@ -96,6 +99,9 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password']),
                 'avatar' => '/images/' . $avatarname,
             ]);
+            $user->assignRole('Usuario');
+
+            return $user;
         }
 
         return User::create([

@@ -35,8 +35,8 @@ Route::resource('/usuarios',GestionUserController::class)->middleware('auth');
 Route::resource('/perfil',PerfilController::class)->middleware('auth');
 Route::resource('/solicitudes',SolicitudController::class)->middleware('auth');
 Route::resource('/gestionfundacion',GestionFundacionController::class)->middleware('auth');
-Route::resource('/representantes',RepresentanteController::class);
-Route::resource('/administradores',AdministradorController::class);
+Route::resource('/representantes',RepresentanteController::class)->middleware('auth');
+Route::resource('/administradores',AdministradorController::class)->middleware('auth');
 
 /* Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
 Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')

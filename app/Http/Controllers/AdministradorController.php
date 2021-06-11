@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdministradorFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,8 @@ class AdministradorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('administradores.admines.index');
+    {   $usuario = User::role('administrador')->get();
+        return view('administradores.admines.index',['use'=>$usuario]);
     }
 
     /**
@@ -33,7 +34,7 @@ class AdministradorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdministradorFormRequest $request)
     {
         $usuario = new User();
         $usuario->nombre = request('nombre');
@@ -49,11 +50,11 @@ class AdministradorController extends Controller
         $usuario->ciudad = request('ciudad');
         $usuario->region = request('region');
         $usuario->resenaPersonal = request('resenaPersonal');
-        $usuario->password = request('password');
+        $usuario->password = bcrypt( request('password'));
         $usuario->assignRole('Administrador');
 
         $usuario->save();
-        return redirect('/administradores');
+        return redirect('/administradores')->with('info','Administrador creado');
     }
 
     /**

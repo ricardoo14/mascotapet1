@@ -3,9 +3,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Fundaciones<a href="gestionfundacion/create"><button type="button" class="btn btn-success float-right">Crear fundacion</button></a></h2>
+            <h2>Fundaciones<a href="gestionfundacion/create"><button type="button" 
+                class="btn btn-success float-right">Crear fundacion</button></a></h2>
+                @if (session('info'))
+                <div class="alert alert-success">
+                  <strong>{{session('info')}}</strong>
+                </div>
+                    @endif
         </div>
-        <div class="col-md-6"></div>
     </div>
     
     <table class="table table-hover">

@@ -47,21 +47,15 @@
                     <label>Descripcion</label>
                     <input type="text" name="descripcion" class="form-control" placeholder="Descripcion">
                 </div>
-                {{-- <div class="form-group col-md-6">
-                    <label>Familia Biologica</label>
-                    <input type="text" name="familiaBiologica" class="form-control" placeholder="Familia biologica">
-                </div> --}}
-                <select class="form-group col-md-6" name="familiaBiologica" >
-                    <option selected>Seleccione familia biologica</option>
+                <div class="form-group col-md-6">
+                    <label>Familia biologica</label>
+                <select class="form-control" name="familiaBiologica" >
+                    <option value="" selected>Seleccione familia biologica</option>
                     <option value="perro">Perro</option>
                     <option value="gato">Gato</option>
                     <option value="otro">Otro</option>
                   </select>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label>etsado</label>
-                <input type="text" name="idEstadoSolicitud" class="form-control" value="1" placeholder="Vacunas">
+                </div>
             </div>
 
             <div class="row">
@@ -70,7 +64,7 @@
                     <input type="text" name="vacunas" class="form-control" placeholder="Vacunas">
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Descripcion Salud</label>
+                    <label>Descripcion salud</label>
                     <input type="text" name="descripcionSalud" class="form-control" placeholder="Descripcion salud">
                 </div>
             </div>
@@ -92,10 +86,14 @@
                             No
                         </label>
                     </div>
+                </div>
+           
 
+                <div class="invisible">
+                    <label>estado</label>
+                    <input type="text" name="idEstadoSolicitud" class="form-control" value="1" placeholder="Vacunas">
                 </div>
             </div>
-
 
             <div class="row">
                 <div class="form-group col-md-6">

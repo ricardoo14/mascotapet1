@@ -16,8 +16,46 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mr-auto">
-                    {{-- <li class="nav-item"><a class="nav-link" href="#">First Item</a></li> --}}
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Usuario
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{url('/perfil')}}">Perfil</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{('/solicitudes')}}">Solicitudes</a>
+                        </div>
+                      </li>
+  
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Fundacion
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{'/perfil'}}">Perfil</a>
+                          <div class="dropdown-divider"></div>
+                          {{-- <a class="dropdown-item" href="#">Something else here</a> --}}
+                        </div>
+                      </li>
+                                            
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Administrador
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{'/perfil'}}">Perfil</a>
+                          <div class="dropdown-divider"></div>
+                           <a class="dropdown-item" href="{{'/usuarios'}}">Gestion de usuarios</a>   
+                          <a class="dropdown-item" href="{{'/representantes'}}">Gestion de reprentantes</a>
+                          <a class="dropdown-item" href="{{'/administradores'}}">Gestion de administradores</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{'/gestionfundacion'}}">Crear fundacion</a>
+                        </div>
+                      </li>
+                      
                 </ul>
+                
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest

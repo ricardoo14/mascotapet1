@@ -76,7 +76,7 @@ class SolicitudController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('solicitudes.edit',['soli'=>Solicitud::findOrFail($id)]);
     }
 
     /**
@@ -88,8 +88,15 @@ class SolicitudController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $solicitud = Solicitud::find($id);
-        $solicitud->idEstadoSolicitud = $request->get('idEstadoSolicitud');
+        $solicitud = Solicitud::findOrFail($id);
+        $solicitud->nombreMascota = $request->get('nombreMascota');
+        $solicitud->edad = $request->get('edad');
+        $solicitud->ciudad = $request->get('ciudad');
+        $solicitud->region = $request->get('region');
+        $solicitud->descripcion = $request->get('descripcion');
+        $solicitud->familiaBiologica = $request->get('familiaBiologica');
+        $solicitud->vacunas = $request->get('vacunas');
+        $solicitud->descripcionSalud = $request->get('descripcionSalud');
         $solicitud->update();
         return redirect('/solicitudes');
     }
@@ -102,7 +109,9 @@ class SolicitudController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $solicitud = Solicitud::findOrFail($id);
+        $solicitud->delete();
+        return redirect('/solicitudes');
     }
     public function cambio(Request $request, $id)
     {   

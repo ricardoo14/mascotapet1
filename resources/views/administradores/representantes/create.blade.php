@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 @section('content')
 
     <div class="container">
@@ -24,7 +24,7 @@
             <div class="form-group col-md-6">
                 <label >Fundacion</label>
                  <select name="idFundacion" class="form-control" >
-                 <option value="selected disabled">Elige una fundacion para el representante</option>
+                 <option value="" selected>Elige una fundacion para el representante</option>
                  @foreach($funda as $f)
                  <option value="{{$f->id}}">{{$f->nombreFundacion}}</option>
                  @endforeach

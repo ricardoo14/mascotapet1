@@ -42,7 +42,7 @@ class GestionFundacionController extends Controller
         $fundacion->rut = request('rut');
         $fundacion->comuna =request('comuna');
         $fundacion->save();
-        return redirect('gestionfundacion');
+        return redirect('gestionfundacion')->with('info','Fundacion creada');
     }
 
     /**

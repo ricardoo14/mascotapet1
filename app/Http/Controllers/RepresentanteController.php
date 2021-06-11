@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RepresentanteFormRequest;
 use App\Models\Fundacion;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -14,8 +15,8 @@ class RepresentanteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('administradores.representantes.index');
+    {   $representantes = User::all()->whereNotNull('idFundacion');
+        return view('administradores.representantes.index',['repre'=>$representantes]);
     }
 
     /**
@@ -35,7 +36,7 @@ class RepresentanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RepresentanteFormRequest $request)
     {
         $usuario = new User();
         $usuario->nombre = request('nombre');
@@ -51,12 +52,12 @@ class RepresentanteController extends Controller
         $usuario->ciudad = request('ciudad');
         $usuario->region = request('region');
         $usuario->resenaPersonal = request('resenaPersonal');
-        $usuario->password = request('password');
+        $usuario->password = bcrypt( request('password'));
         $usuario->idFundacion = request('idFundacion');
         $usuario->assignRole('Fundacion');
 
         $usuario->save();
-        return redirect('/representantes');
+        return redirect('/representantes')->with('info','Representante creado');
     }
 
     /**
@@ -101,6 +102,9 @@ class RepresentanteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $representantes = User::findOrFail($id);
+        $representantes->delete();
+        return redirect('/representantes');
+        
     }
 }
