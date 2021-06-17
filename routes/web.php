@@ -6,6 +6,7 @@ use App\Http\Controllers\GestionUserController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RepresentanteController;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\SolicitudRController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,7 @@ Route::resource('/solicitudes',SolicitudController::class)->middleware('auth');
 Route::resource('/gestionfundacion',GestionFundacionController::class)->middleware('auth');
 Route::resource('/representantes',RepresentanteController::class)->middleware('auth');
 Route::resource('/administradores',AdministradorController::class)->middleware('auth');
+Route::resource('/solicitudr',SolicitudRController::class)->middleware('auth');
 
 /* Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
 Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')
