@@ -35,7 +35,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{'/perfil'}}">Perfil</a>
                           <div class="dropdown-divider"></div>
-                          {{-- <a class="dropdown-item" href="#">Something else here</a> --}}
+                          <a class="dropdown-item" href="{{'/solicitudr'}}">Solicitudes de publicacion</a>
                         </div>
                       </li>
                                             

@@ -6,7 +6,6 @@
 <div class="col-sm-6">
 
 <h3>Editar solicitud</h3>
-//esta parte es la validacion
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

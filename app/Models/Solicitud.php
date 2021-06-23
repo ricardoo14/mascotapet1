@@ -9,4 +9,6 @@ class Solicitud extends Model
 {
     protected $table = 'solicitudes';
     use HasFactory;
+
+    
 }

@@ -33,6 +33,7 @@ class CrearSolicitudFormRequest extends FormRequest
             'vacunas' => 'required',
             'descripcionSalud' => 'required',
             'edad' => 'required',
+            'imagen' => 'mimes:jpeg,bpm,png'
         ];
     }
 }

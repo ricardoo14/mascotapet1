@@ -88,11 +88,15 @@
                     </div>
                 </div>
            
+                <div class="form-group col-md-6">
+                    <label >Imagen</label>
+                    <input type="file" name="imagen" class="form-control"> 
+                 </div>
+            </div>
 
-                <div class="invisible">
-                    <label>estado</label>
-                    <input type="text" name="idEstadoSolicitud" class="form-control" value="1" placeholder="Vacunas">
-                </div>
+            <div class="invisible">
+                <label>estado</label>
+                <input type="text" name="idEstadoSolicitud" class="form-control" value="1" placeholder="Vacunas">
             </div>
 
             <div class="row">

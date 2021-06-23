@@ -53,6 +53,11 @@ class SolicitudController extends Controller
         $solicitud->estadoEsterilizacion = request('estadoEsterilizacion');
         $solicitud->idEstadoSolicitud = request('idEstadoSolicitud');
         $solicitud->idUsuario = auth()->id();
+        if($request->hasFile('imagen')){
+            $file =$request->imagen;//obtengo la imagen del formulario
+            $file->move(public_path() . '/imagenes', $file->getClientOriginalName());//la muevo a "imagenes" y obtengo el nombre original
+            $solicitud->imagen = $file->getClientOriginalName();//aqui introducimos en la base de datos el nombre del archivo
+        }
         $solicitud->save();
         return redirect('solicitudes');
     }

@@ -24,10 +24,11 @@ class CreateSolicitudesTable extends Migration
             $table->string('vacunas');
             $table->string('descripcionSalud');
             $table->integer('edad');
+            $table->string('imagen')->nullable();
             $table->timestamps();
             $table->foreignId('idUsuario')->constrained('users')->onDelete('cascade');
             $table->foreignId('idEstadoSolicitud')->nullable()->constrained('estados_solicitud');
-            $table->foreignId('idAlbum')->nullable()->constrained('albumes');
+            
         });
     }
 
