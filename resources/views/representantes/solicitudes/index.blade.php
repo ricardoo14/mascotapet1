@@ -25,8 +25,8 @@
                     <th scope="row">{{$s->id}}</th>
                     <td>{{$s->nombreMascota}}</td>
                     <td>{{$s->created_at}}</td>
-                    <td>{{$s->idEstadoSolicitud}}</td>
-                    <td>{{$s->idUsuario}}</td>
+                    <td>{{$s->estadoSolicitud->estadoSolicitud}}</td>
+                    <td>{{$s->user->nombre}}</td>
                     <td><a href="{{ route('solicitudr.show', $s->id) }}"><button type="button" class="btn btn-secondary">Ver</button></a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$s->id}}">
                             Eliminar

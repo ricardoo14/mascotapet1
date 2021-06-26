@@ -98,8 +98,8 @@
             </fieldset>
             <div class="row">
                 <div class="col-md-12">
-                    {{-- <a href="{{ route('perfil.edit', $use->id) }}"><button type="button"
-                            class="btn btn-warning">Editar</button></a> --}}
+                    <a href="{{ route('perfil.edit', $use->id) }}"><button type="button"
+                            class="btn btn-warning">Editar</button></a>
                 </div>
             </div>
         </form>

@@ -36,6 +36,7 @@
                           <a class="dropdown-item" href="{{'/perfil'}}">Perfil</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{{'/solicitudr'}}">Solicitudes de publicacion</a>
+                          <a class="dropdown-item" href="{{'/publicaciones'}}">Publicaciones</a>
                         </div>
                       </li>
                                             

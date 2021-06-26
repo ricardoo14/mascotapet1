@@ -9,4 +9,8 @@ class Fundacion extends Model
 {   
     protected $table = 'fundaciones';
     use HasFactory;
+
+    public function user(){
+        return $this->hasMany('App\Models\User');
+    }
 }

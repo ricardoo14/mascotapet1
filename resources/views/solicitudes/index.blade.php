@@ -26,7 +26,7 @@
                     <td>{{$s->created_at}}</td>
                     <td>{{$s->idEstadoSolicitud}}</td>
                     <td><a href="{{ route('solicitudes.show', $s->id) }}"><button type="button" class="btn btn-secondary">Ver</button></a>
-                        <a href="{{route('solicitudes.edit',$s->id)}}"><button type="button" class="btn btn-primary">Editar</button></a>
+                        <a href="{{route('solicitudes.edit',$s->id)}}"><button type="button" class="btn btn-warning">Editar</button></a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$s->id}}">
                             Eliminar
                           </button>

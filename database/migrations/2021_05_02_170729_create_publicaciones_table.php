@@ -15,11 +15,10 @@ class CreatePublicacionesTable extends Migration
     {
         Schema::create('publicaciones', function (Blueprint $table) {
             $table->id();
-            $table->date('fechaPublicacion');
             $table->timestamps();
             $table->foreignId('idSolicitud')->constrained('solicitudes');
-            $table->foreignId('idFundacion')->constrained('fundaciones');
-            $table->foreignId('idEstadoPublicacion')->constrained('estados_publicacion');
+            $table->foreignId('idFundacion')->nullable()->constrained('fundaciones');
+            $table->foreignId('idEstadoPublicacion')->nullable()->constrained('estados_publicacion');
         });
     }
     
