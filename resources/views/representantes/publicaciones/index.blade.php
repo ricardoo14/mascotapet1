@@ -13,9 +13,9 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre mascota</th>
-                <th scope="col">Fecha de solicitud</th>
-                <th scope="col">estado</th>
+                <th scope="col">Fecha de publicacion</th>
                 <th scope="col">usuario</th>
+                <th scope="col">estado</th>
                 <th scope="col">Accion</th>
             </tr>
         </thead>
@@ -23,10 +23,10 @@
             @foreach($publicaciones as $p)
                 <tr>
                     <th scope="row">{{$p->id}}</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$p->solicitud->nombreMascota}}</td>
+                    <td>{{$p->solicitud->created_at}}</td>
+                    <td>{{$p->solicitud->user->nombre}} {{$p->solicitud->user->apellido}}</td>
+                    <td>{{$p->solicitud->estadoSolicitud->estadoSolicitud}}</td>
                     <td></td>
                 </tr>
             @endforeach    

@@ -14,7 +14,7 @@ class TablonController extends Controller
      */
     public function index()
     {
-        return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','2')]);
+        return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','1')]);
     }
 
     /**

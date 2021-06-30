@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Publicacion;
 use Illuminate\Http\Request;
 use App\Models\Solicitud;
+use Illuminate\Support\Facades\Auth;
 
 class PublicacionController extends Controller
 {
@@ -38,7 +39,8 @@ class PublicacionController extends Controller
     {  
         $publicacion = new Publicacion();
         $publicacion->idSolicitud = request('idSolicitud');
-        $publicacion->idFundacion = request('idFundacion');
+        /* $publicacion->idFundacion = request('idFundacion'); */
+        $publicacion->idFundacion = Auth::user()->idFundacion;
         $publicacion->idEstadoPublicacion = request('idEstadoPublicacion');
         $publicacion->save();
         return redirect('publicaciones');
