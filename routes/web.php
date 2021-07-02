@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\GestionFundacionController;
+use App\Http\Controllers\GestionMeetingController;
 use App\Http\Controllers\GestionUserController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PublicacionController;
 use App\Http\Controllers\RepresentanteController;
@@ -43,15 +45,15 @@ Route::resource('/administradores',AdministradorController::class)->middleware('
 Route::resource('/solicitudr',SolicitudRController::class)->middleware('auth');
 Route::resource('/publicaciones',PublicacionController::class)->middleware('auth');
 Route::resource('/tablon',TablonController::class);
+Route::resource('/meetings',MeetingController::class);
+Route::resource('/gestionmetings',GestionMeetingController::class);
 
-Route::get('/publistore/{id}',[PublicacionController::class,'store'])->name('publistore');
 
+/* Route::get('/publistore/{id}',[PublicacionController::class,'store'])->name('publistore');
+Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
+Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')->middleware('auth');
+Route::put('/solicitudes/{id}',[SolicitudController::class,'cambio']); */ 
 
-/* Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
-Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')
-->middleware('auth');
-Route::put('/solicitudes/{id}',[SolicitudController::class,'cambio']); 
-*/
 
 
 

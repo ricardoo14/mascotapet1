@@ -89,20 +89,13 @@
             </form>
 
 
-            <form action="/publicaciones" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('solicitudr.update', $s->id) }}" method="POST">
+                @method('PATCH')
                 @csrf
                 <div class="d-none">
                     <div class="col-md-6">
-                        <label>Id solicitud</label>
-                        <input type="text" name="idSolicitud" class="form-control" value="{{ $s->id }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label>Id fundacion</label>
-                        <input type="text" name="idFundacion" class="form-control" value="{{ $s->user->idFundacion }}">
-                    </div>
-                    <div class="col-md-6">
-                        <label>Id estado publicacion</label>
-                        <input type="text" name="idEstadoPublicacion" class="form-control" value="2">
+                        <label>Id estado solicitud</label>
+                        <input type="text" name="idEstadoSolicitud" class="form-control" value="2">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-danger">Denegar</button>

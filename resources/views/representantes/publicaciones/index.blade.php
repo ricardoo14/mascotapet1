@@ -16,7 +16,7 @@
                 <th scope="col">Fecha de publicacion</th>
                 <th scope="col">usuario</th>
                 <th scope="col">estado</th>
-                <th scope="col">Accion</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,8 @@
                     <td>{{$p->solicitud->created_at}}</td>
                     <td>{{$p->solicitud->user->nombre}} {{$p->solicitud->user->apellido}}</td>
                     <td>{{$p->solicitud->estadoSolicitud->estadoSolicitud}}</td>
-                    <td></td>
+                    
+                    
                 </tr>
             @endforeach    
         </tbody>

@@ -18,7 +18,7 @@
           <h5 class="card-title">{{$p->Solicitud->nombreMascota}}</h5>
           <p class="card-text">{{$p->Solicitud->descripcion}}</p>
           <p class="card-text">{{$p->Solicitud->ciudad}}</p>
-          <a href="#" class="btn btn-success">Adoptar</a>
+          <a href="{{ route('tablon.show', $p->id) }}"><button type="button" class="btn btn-secondary">Adoptar</button></a>
         </div>
       </div>
     </div>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Publicacion;
+use App\Models\Meeting;
 use Illuminate\Http\Request;
 
-class TablonController extends Controller
+class GestionMeetingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class TablonController extends Controller
      */
     public function index()
     {
-       /*  return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','1')]); */
-       return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','1')]);
+        return view('gestionMeetings.index',['meetings'=>Meeting::all()->where('idPublicacion',auth()->id())]);
     }
 
     /**
@@ -47,7 +46,7 @@ class TablonController extends Controller
      */
     public function show($id)
     {
-        return view('tablon.show',['p'=>Publicacion::findOrFail($id)]);
+        //
     }
 
     /**

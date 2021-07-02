@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Meeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
-class UsuarioController extends Controller
+class MeetingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('meetings.index',['meetings'=>Meeting::all()->where('idUsuario',auth()->id())]);
     }
 
     /**
@@ -36,7 +36,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $meeting = new Meeting();
+        $meeting->motivacion = request('motivacion');
+        $meeting->idUsuario = Auth::user()->id;
+        $meeting->idPublicacion = request('idPublicacion');
+        $meeting->idEstadoMeeting = request('idEstadoMeeting');
+        $meeting->save();
+        return redirect('meetings');
     }
 
     /**
@@ -47,7 +53,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('meetings.show',['m'=>Meeting::findOrFail($id)]);
     }
 
     /**
@@ -59,7 +65,6 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         //
-        
     }
 
     /**

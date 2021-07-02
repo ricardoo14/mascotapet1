@@ -16,7 +16,8 @@ class PublicacionController extends Controller
      */
     public function index()
     {     
-        return view('representantes.publicaciones.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','2')]);
+        
+        return view('representantes.publicaciones.index',['publicaciones'=>Publicacion::all()->where('idFundacion',auth()->user()->idFundacion)]);
     }
 
     /**

@@ -12,4 +12,7 @@ class Publicacion extends Model
     public function solicitud(){
         return $this->belongsTo('App\Models\Solicitud','idSolicitud','id');
     }
+    public function meetings(){
+        return $this->hasMany('App\Models\Publicacion');
+    }
 }

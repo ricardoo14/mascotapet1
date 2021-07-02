@@ -72,7 +72,10 @@ class SolicitudRController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $solicitud = Solicitud::findOrFail($id);
+        $solicitud->idEstadoSolicitud = $request->get('idEstadoSolicitud');
+        $solicitud->update();
+        return redirect('/solicitudes');
     }
 
     /**

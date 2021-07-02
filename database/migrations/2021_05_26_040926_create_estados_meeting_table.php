@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMeetingsTable extends Migration
+class CreateEstadosMeetingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateMeetingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('meetings', function (Blueprint $table) {
+        Schema::create('estados_meeting', function (Blueprint $table) {
             $table->id();
-            $table->text('motivacion');
+            $table->string('estadoMeeting');//dejar nullable el estado ya que no lo necesitamos al adoptar
             $table->timestamps();
-            $table->foreignId('idUsuario')->constrained('users');
-            $table->foreignId('idPublicacion')->constrained('publicaciones');
-            $table->foreignId('idEstadoMeeting')->nullable()->constrained('estados_meeting');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateMeetingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meetings');
+        Schema::dropIfExists('estados_meeting');
     }
 }
