@@ -45,8 +45,9 @@ Route::resource('/administradores',AdministradorController::class)->middleware('
 Route::resource('/solicitudr',SolicitudRController::class)->middleware('auth');
 Route::resource('/publicaciones',PublicacionController::class)->middleware('auth');
 Route::resource('/tablon',TablonController::class);
+Route::get('/datosrescatador/{id}',[MeetingController::class,'datosrescatador'])->name('datosr');
 Route::resource('/meetings',MeetingController::class);
-Route::resource('/gestionmetings',GestionMeetingController::class);
+Route::resource('/gestionmeetings',GestionMeetingController::class);
 
 
 /* Route::get('/publistore/{id}',[PublicacionController::class,'store'])->name('publistore');

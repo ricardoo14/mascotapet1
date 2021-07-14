@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6"></div>
         </div>
-        <form action="{{ route('perfil.update', $use->id) }}" method="POST">
+        <form action="{{ route('perfil.update', $use->id) }}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
 
@@ -97,6 +97,11 @@
                     <input type="text" class="form-control" name="resenaPersonal" value="{{ $use->resenaPersonal }}"
                         placeholder="Reseña personal">
                 </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <input id="avatar" placeholder="Ingrese avatar" type="file"
+                    class="form-control" name="avatar">
             </div>
 
 

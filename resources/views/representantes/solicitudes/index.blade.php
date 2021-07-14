@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Todas las Solicitudes</h2>
+            <h2>Gestión de solicitudes de publicación</h2>
         </div>
         <div class="col-md-6"></div>
     </div>
@@ -11,22 +11,22 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre mascota</th>
+                <th scope="col"></th>
+                <th scope="col">Nombre de mascota</th>
                 <th scope="col">Fecha de solicitud</th>
-                <th scope="col">estado</th>
-                <th scope="col">usuario</th>
-                <th scope="col">Accion</th>
+                <th scope="col">Rescatador</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
             @foreach($solici as $s)
                 <tr>
-                    <th scope="row">{{$s->id}}</th>
+                    <th scope="row"></th>
                     <td>{{$s->nombreMascota}}</td>
                     <td>{{$s->created_at}}</td>
-                    <td>{{$s->estadoSolicitud->estadoSolicitud}}</td>
                     <td>{{$s->user->nombre}}</td>
+                    <td>{{$s->estadoSolicitud->estadoSolicitud}}</td>
                     <td><a href="{{ route('solicitudr.show', $s->id) }}"><button type="button" class="btn btn-secondary">Ver</button></a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete-{{$s->id}}">
                             Eliminar

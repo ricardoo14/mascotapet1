@@ -41,6 +41,7 @@ class MeetingController extends Controller
         $meeting->idUsuario = Auth::user()->id;
         $meeting->idPublicacion = request('idPublicacion');
         $meeting->idEstadoMeeting = request('idEstadoMeeting');
+        $meeting->idRescatador = request('idRescatador');
         $meeting->save();
         return redirect('meetings');
     }
@@ -76,7 +77,7 @@ class MeetingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -88,5 +89,9 @@ class MeetingController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function datosrescatador($id)
+    {
+        return view('meetings.datosr',['m'=>Meeting::findOrFail($id)]);
     }
 }

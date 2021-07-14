@@ -10557,10 +10557,13 @@ header.masthead {
 header.masthead .masthead-content {
   z-index: 1;
   position: relative;
+  
 }
 
 header.masthead .masthead-content .masthead-heading {
+  font-family: sans-serif;
   font-size: 4rem;
+  text-shadow: #555 2px 2px 3px;
 }
 
 header.masthead .masthead-content .masthead-subheading {

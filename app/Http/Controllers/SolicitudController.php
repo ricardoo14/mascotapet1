@@ -102,6 +102,14 @@ class SolicitudController extends Controller
         $solicitud->familiaBiologica = $request->get('familiaBiologica');
         $solicitud->vacunas = $request->get('vacunas');
         $solicitud->descripcionSalud = $request->get('descripcionSalud');
+
+        if($request->has('imagen')) {
+            $image = $request->file('imagen');
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('/imagenes/'), $filename);
+            $solicitud->imagen = $request->file('imagen')->getClientOriginalName();
+        }
+        
         $solicitud->update();
         return redirect('/solicitudes');
     }

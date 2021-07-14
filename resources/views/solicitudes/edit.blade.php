@@ -17,7 +17,15 @@
 @endif
 </div>
 </div>
-<form action="{{route('solicitudes.update',$soli->id)}}" method="POST">
+
+<div class="row justify-content-center">
+  <div class="col-lg-4">
+      <div class="p-5"><img class="img-fluid rounded-circle" src="{{ asset('imagenes/' . $soli->imagen) }}"
+              alt="{{ $soli->imagen }}"></div>
+  </div>
+</div>
+
+<form action="{{route('solicitudes.update',$soli->id)}}" method="POST" enctype="multipart/form-data">
 @method('PATCH')
 @csrf
 
@@ -87,6 +95,10 @@
             </label>
         </div>
     </div>
+    <div class="form-group col-md-6">
+      <label >Imagen</label>
+      <input type="file" name="imagen" class="form-control"> 
+   </div>
 </div>
 
   <button type="submit" class="btn btn-primary">Guardar</button>

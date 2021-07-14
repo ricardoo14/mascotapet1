@@ -3,10 +3,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h2>Detalle {{ $s->nombreMascota }}</h2>
+            <div class="col-md-11">
+                <h2>Solicitud {{ $s->nombreMascota }}</h2>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-1">
+                <a href="{{ url('/solicitudr')}}"><button type="button" class="btn btn-primary">Atrás</button></a> 
+
+            </div>
         </div>
 
         <div class="row justify-content-center">
@@ -86,19 +89,6 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Publicar</button>
-            </form>
-
-
-            <form action="{{ route('solicitudr.update', $s->id) }}" method="POST">
-                @method('PATCH')
-                @csrf
-                <div class="d-none">
-                    <div class="col-md-6">
-                        <label>Id estado solicitud</label>
-                        <input type="text" name="idEstadoSolicitud" class="form-control" value="2">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-danger">Denegar</button>
             </form>
         </div>
 

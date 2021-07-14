@@ -16,6 +16,7 @@ class CreateMeetingsTable extends Migration
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
             $table->text('motivacion');
+            $table->string('idRescatador')->nullable();
             $table->timestamps();
             $table->foreignId('idUsuario')->constrained('users');
             $table->foreignId('idPublicacion')->constrained('publicaciones');

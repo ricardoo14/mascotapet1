@@ -97,7 +97,8 @@ class RegisterController extends Controller
                 'region' => $data['region'],
                 'resenaPersonal' => $data['resenaPersonal'],
                 'password' => Hash::make($data['password']),
-                'avatar' => '/images/' . $avatarname,
+                /* 'avatar' => '/images/' . $avatarname, */
+                'avatar' => $avatarname, 
             ]);
             $user->assignRole('Usuario');
 

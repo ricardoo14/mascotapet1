@@ -17,4 +17,7 @@ class Meeting extends Model
     public function publicacion(){
         return $this->belongsTo('App\Models\Publicacion','idPublicacion','id');
     }
+    public function user(){
+        return $this->belongsTo('App\Models\User','idUsuario','id');
+    }
 }

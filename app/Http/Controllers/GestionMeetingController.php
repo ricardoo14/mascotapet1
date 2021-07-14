@@ -14,7 +14,7 @@ class GestionMeetingController extends Controller
      */
     public function index()
     {
-        return view('gestionMeetings.index',['meetings'=>Meeting::all()->where('idPublicacion',auth()->id())]);
+        return view('gestionMeetings.index',['meetings'=>Meeting::all()->where('idRescatador',auth()->id())]);
     }
 
     /**
@@ -46,7 +46,7 @@ class GestionMeetingController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('gestionMeetings.show',['m'=>Meeting::findOrFail($id)]);
     }
 
     /**
@@ -69,7 +69,10 @@ class GestionMeetingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $meeting = Meeting::findOrFail($id);
+        $meeting->idEstadoMeeting = $request->get('idEstadoMeeting');
+        $meeting->update();
+        return redirect('/gestionmeetings');
     }
 
     /**

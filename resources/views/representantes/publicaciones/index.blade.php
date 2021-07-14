@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Todas las publicaciones</h2>
+            <h2>Publicaciones de fundación</h2>
         </div>
         <div class="col-md-6"></div>
     </div>

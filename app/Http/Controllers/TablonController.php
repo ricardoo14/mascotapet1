@@ -13,9 +13,13 @@ class TablonController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-       /*  return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','1')]); */
-       return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','1')]);
+    {   
+        /* $publicaciones =Publicacion::all()->where('idEstadoPublicacion','1');
+        $filtradas = $publicaciones->where(''); */
+
+        return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','1')]);
+        
+       
     }
 
     /**

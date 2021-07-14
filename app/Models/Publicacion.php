@@ -15,4 +15,7 @@ class Publicacion extends Model
     public function meetings(){
         return $this->hasMany('App\Models\Publicacion');
     }
+    public function fundacion(){
+        return $this->belongsTo('App\Models\Fundacion','idFundacion','id');
+    }
 }

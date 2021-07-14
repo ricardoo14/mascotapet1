@@ -26,9 +26,9 @@
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="{{('/solicitudes')}}">Solicitudes de publicacion</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{{('/meetings')}}">Solicitudes de meeting</a>
+                          <a class="dropdown-item" href="{{('/meetings')}}">Mis solicitudes de meetings</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Mis meetings</a>
+                          <a class="dropdown-item" href="{{('/gestionmeetings')}}">Meetings recibidos</a>
                         </div>
                       </li>
   
@@ -39,7 +39,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{'/perfil'}}">Perfil</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{{'/solicitudr'}}">Solicitudes de publicacion</a>
+                          <a class="dropdown-item" href="{{'/solicitudr'}}">Gestión de solicitudes</a>
                           <a class="dropdown-item" href="{{'/publicaciones'}}">Publicaciones</a>
                         </div>
                       </li>
@@ -108,11 +108,7 @@
             <section class="mb-4">
 
 
-                <!-- Twitter -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
-
-
+                
 
                 <!-- Instagram -->
                 <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
@@ -133,8 +129,8 @@
 
         <!-- Copyright -->
         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+           
+            <a class="text-dark" href="https://mdbootstrap.com/">Mascotapet.com</a>
         </div>
         <!-- Copyright -->
     </footer>

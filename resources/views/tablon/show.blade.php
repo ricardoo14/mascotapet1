@@ -81,9 +81,14 @@
                 </div>
                 <div class="col-md-6">
                     <label>Id estado meeting</label>
-                    <input type="text" name="idEstadoMeeting" class="form-control" value="3">
+                    <input type="text" name="idEstadoMeeting" class="form-control" value="1">
+                </div>
+                <div class="col-md-6">
+                    <label>IdRescatador</label>
+                    <input type="text" name="idRescatador" class="form-control" value="{{$p->solicitud->user->id}}">
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-md-12">
                     <label>Motivacion</label>

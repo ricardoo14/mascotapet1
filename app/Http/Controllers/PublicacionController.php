@@ -44,6 +44,11 @@ class PublicacionController extends Controller
         $publicacion->idFundacion = Auth::user()->idFundacion;
         $publicacion->idEstadoPublicacion = request('idEstadoPublicacion');
         $publicacion->save();
+
+        $solicitud = Solicitud::findOrfail(request('idSolicitud'));
+        $solicitud->idEstadoSolicitud = 2;
+        $solicitud->update();
+
         return redirect('publicaciones');
         
     }
