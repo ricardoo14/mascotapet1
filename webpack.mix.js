@@ -14,4 +14,5 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/portada.scss', 'public/css')
+    .sass('resources/sass/perfil.scss', 'public/css')
     .sourceMaps();

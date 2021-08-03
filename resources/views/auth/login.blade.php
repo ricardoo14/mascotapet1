@@ -26,7 +26,7 @@
                     @enderror                
             </div>
 
-            <div class="form-group"><input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <div class="form-group"><input id="password" placeholder="Contraseña" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                     @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                 <label class="form-check-label" for="remember">
-                    {{ __('Remember Me') }}
+                    {{ __('Recordarme') }}
                 </label>
             </div>
 
@@ -48,7 +48,7 @@
        
             @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('¿Te olvidaste de tu contraseña?') }}
                                     </a>
                                 @endif
                             </div>

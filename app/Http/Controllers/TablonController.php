@@ -12,11 +12,14 @@ class TablonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct() {
+        $this->middleware('auth')->only(['show']);
+    }
+
     public function index()
     {   
-        /* $publicaciones =Publicacion::all()->where('idEstadoPublicacion','1');
-        $filtradas = $publicaciones->where(''); */
-
+        
         return view('tablon.index',['publicaciones'=>Publicacion::all()->where('idEstadoPublicacion','1')]);
         
        
@@ -51,6 +54,7 @@ class TablonController extends Controller
      */
     public function show($id)
     {
+        
         return view('tablon.show',['p'=>Publicacion::findOrFail($id)]);
     }
 

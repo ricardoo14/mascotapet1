@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\AdopcionController;
 use App\Http\Controllers\GestionFundacionController;
 use App\Http\Controllers\GestionMeetingController;
 use App\Http\Controllers\GestionUserController;
@@ -34,8 +35,6 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
 Route::resource('/usuarios',GestionUserController::class)->middleware('auth');
 Route::resource('/perfil',PerfilController::class)->middleware('auth');
 Route::resource('/solicitudes',SolicitudController::class)->middleware('auth');
@@ -48,12 +47,8 @@ Route::resource('/tablon',TablonController::class);
 Route::get('/datosrescatador/{id}',[MeetingController::class,'datosrescatador'])->name('datosr');
 Route::resource('/meetings',MeetingController::class);
 Route::resource('/gestionmeetings',GestionMeetingController::class);
+Route::resource('/adopcion',AdopcionController::class);
 
-
-/* Route::get('/publistore/{id}',[PublicacionController::class,'store'])->name('publistore');
-Route::get('/perfil',[UsuarioController::class, 'perfil'])->middleware('auth');
-Route::get('/perfileditar/{id}',[UsuarioController::class,'edit'])->name('profile.update')->middleware('auth');
-Route::put('/solicitudes/{id}',[SolicitudController::class,'cambio']); */ 
 
 
 

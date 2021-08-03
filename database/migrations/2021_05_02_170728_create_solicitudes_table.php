@@ -20,7 +20,6 @@ class CreateSolicitudesTable extends Migration
             $table->string('region',60);
             $table->string('estadoEsterilizacion');
             $table->string('descripcion');
-            $table->string('familiaBiologica');
             $table->string('vacunas');
             $table->string('descripcionSalud');
             $table->integer('edad');
@@ -28,6 +27,7 @@ class CreateSolicitudesTable extends Migration
             $table->timestamps();
             $table->foreignId('idUsuario')->constrained('users')->onDelete('cascade');
             $table->foreignId('idEstadoSolicitud')->nullable()->constrained('estados_solicitud');
+            $table->foreignId('idFamiliaBiologica')->nullable()->constrained('familias_biologica');
             
         });
     }

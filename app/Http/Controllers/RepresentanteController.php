@@ -15,7 +15,8 @@ class RepresentanteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $representantes = User::all()->whereNotNull('idFundacion');
+    {   
+        $representantes = User::all()->whereNotNull('idFundacion');
         return view('administradores.representantes.index',['repre'=>$representantes]);
     }
 

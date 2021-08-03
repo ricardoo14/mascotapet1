@@ -84,25 +84,13 @@ class PerfilController extends Controller
         $user->region = $request->get('region');
         $user->resenaPersonal = $request->get('resenaPersonal');
 
-        /* if($request->hasFile('avatar')){
-            $avataruploaded = request()->file('avatar');
-            $avatarname = time() . '.' . $avataruploaded->getClientOriginalExtension();
-            $avatarpath = public_path('/images/');
-            $avataruploaded->move($avatarpath, $avatarname);
-        } */
         if($request->has('avatar')) {
             $image = $request->file('avatar');
             $filename = $image->getClientOriginalName();
             $image->move(public_path('/images/'), $filename);
             $user->avatar = $request->file('avatar')->getClientOriginalName();
         }
-        /* if($request->has('avatar')) {
-        $file =$request->file('avatar');
-        $extention = $file->getClientOriginalExtension();
-        $filename = time() . '.' .$extention;
-        $file->move(public_path('/images/'), $filename);
-        $user->avatar=$filename;
-        }*/
+        
         $user->update(); 
 
         return redirect('/perfil');

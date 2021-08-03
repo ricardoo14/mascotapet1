@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Publicacion;
 use App\Models\Solicitud;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SolicitudRController extends Controller
@@ -14,7 +15,8 @@ class SolicitudRController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  $solicitudes= Solicitud::all();
+    {
+        $solicitudes= Solicitud::all();
         return view('representantes.solicitudes.index',['solici'=>$solicitudes]);
     }
 
@@ -86,6 +88,8 @@ class SolicitudRController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $solicitud = Solicitud::findOrFail($id);
+        $solicitud->delete();
+        return redirect('/solicitudr');
     }
 }

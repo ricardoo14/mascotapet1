@@ -43,6 +43,7 @@ class PublicacionController extends Controller
         /* $publicacion->idFundacion = request('idFundacion'); */
         $publicacion->idFundacion = Auth::user()->idFundacion;
         $publicacion->idEstadoPublicacion = request('idEstadoPublicacion');
+        $publicacion->idFamiliaBiologica = request('idFamiliaBiologica');
         $publicacion->save();
 
         $solicitud = Solicitud::findOrfail(request('idSolicitud'));
@@ -84,11 +85,7 @@ class PublicacionController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        /* $publicacion = Publicacion::findOrfail($id);
-        $publicacion = new Publicacion();
-        $publicacion->idSolicitud = $request->get('id');
-        $publicacion->update();
-        return redirect('publicaciones'); */
+        
     }
 
     /**
@@ -99,6 +96,8 @@ class PublicacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $publicacion = Publicacion::findOrFail($id);
+        $publicacion->delete();
+        return redirect('/publicaciones');
     }
 }

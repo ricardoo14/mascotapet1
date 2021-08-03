@@ -15,8 +15,9 @@ class CreatePublicacionesTable extends Migration
     {
         Schema::create('publicaciones', function (Blueprint $table) {
             $table->id();
+            $table->string('idFamiliaBiologica')->nullable();
             $table->timestamps();
-            $table->foreignId('idSolicitud')->constrained('solicitudes');
+            $table->foreignId('idSolicitud')->constrained('solicitudes')->onDelete('cascade');
             $table->foreignId('idFundacion')->nullable()->constrained('fundaciones');
             $table->foreignId('idEstadoPublicacion')->nullable()->constrained('estados_publicacion');
         });

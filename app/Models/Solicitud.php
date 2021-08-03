@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Solicitud extends Model
 {
     protected $table = 'solicitudes';
     use HasFactory;
+    
 
     public function user(){
         return $this->belongsTo('App\Models\User','idUsuario','id');
@@ -19,6 +21,9 @@ class Solicitud extends Model
     }
     public function publicacion(){
         return $this->hasOne('App\Models\Publicacion');
+    }
+    public function familiaBiologica(){
+        return $this->belongsTo('App\Models\FamiliaBiologica','idFamiliaBiologica','id');
     }
 
 }

@@ -35,7 +35,11 @@ class MeetingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'motivacion'=>'required',
+        ]);
+
         $meeting = new Meeting();
         $meeting->motivacion = request('motivacion');
         $meeting->idUsuario = Auth::user()->id;
@@ -88,7 +92,9 @@ class MeetingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $meeting = Meeting::findOrFail($id);
+        $meeting->delete();
+        return redirect('/meetings');
     }
     public function datosrescatador($id)
     {

@@ -36,7 +36,13 @@ class GestionFundacionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'nombreFundacion'=>'required|max:40',
+            'rut'=>'required|max:10',
+            'comuna'=>'required|max:40',
+        ]);
+
         $fundacion= new Fundacion();
         $fundacion->nombreFundacion = request('nombreFundacion');
         $fundacion->rut = request('rut');
@@ -53,7 +59,7 @@ class GestionFundacionController extends Controller
      */
     public function show($id)
     {
-        return view('administradores.fundaciones.show');
+        return view('administradores.fundaciones.show',['fundacion'=>Fundacion::findOrFail($id)]);
     }
 
     /**

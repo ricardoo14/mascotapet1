@@ -19,7 +19,7 @@ class CreateMeetingsTable extends Migration
             $table->string('idRescatador')->nullable();
             $table->timestamps();
             $table->foreignId('idUsuario')->constrained('users');
-            $table->foreignId('idPublicacion')->constrained('publicaciones');
+            $table->foreignId('idPublicacion')->constrained('publicaciones')->onDelete('cascade');
             $table->foreignId('idEstadoMeeting')->nullable()->constrained('estados_meeting');
         });
     }

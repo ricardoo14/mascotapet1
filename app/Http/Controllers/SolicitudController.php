@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CrearSolicitudFormRequest;
+use App\Models\FamiliaBiologica;
+use App\Models\Publicacion;
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
 
@@ -29,7 +31,8 @@ class SolicitudController extends Controller
     public function create()
     {
         //
-        return view('solicitudes.create');
+        $familiaBiologica = FamiliaBiologica::all();
+        return view('solicitudes.create',['familia'=>$familiaBiologica]);
     }
 
     /**
@@ -47,11 +50,11 @@ class SolicitudController extends Controller
         $solicitud->ciudad = request('ciudad');
         $solicitud->region = request('region');
         $solicitud->descripcion = request('descripcion');
-        $solicitud->familiaBiologica = request('familiaBiologica');
         $solicitud->vacunas = request('vacunas');
         $solicitud->descripcionSalud = request('descripcionSalud');
         $solicitud->estadoEsterilizacion = request('estadoEsterilizacion');
         $solicitud->idEstadoSolicitud = request('idEstadoSolicitud');
+        $solicitud->idFamiliaBiologica = request('idFamiliaBiologica');
         $solicitud->idUsuario = auth()->id();
         if($request->hasFile('imagen')){
             $file =$request->imagen;//obtengo la imagen del formulario
@@ -99,7 +102,7 @@ class SolicitudController extends Controller
         $solicitud->ciudad = $request->get('ciudad');
         $solicitud->region = $request->get('region');
         $solicitud->descripcion = $request->get('descripcion');
-        $solicitud->familiaBiologica = $request->get('familiaBiologica');
+        $solicitud->idFamiliaBiologica = $request->get('idFamiliaBiologica');
         $solicitud->vacunas = $request->get('vacunas');
         $solicitud->descripcionSalud = $request->get('descripcionSalud');
 
@@ -125,10 +128,5 @@ class SolicitudController extends Controller
         $solicitud = Solicitud::findOrFail($id);
         $solicitud->delete();
         return redirect('/solicitudes');
-    }
-    public function cambio(Request $request, $id)
-    {   
-        
-        
     }
 }

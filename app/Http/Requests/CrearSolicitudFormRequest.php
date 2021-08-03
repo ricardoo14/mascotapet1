@@ -24,16 +24,16 @@ class CrearSolicitudFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreMascota' => 'required',
-            'ciudad' => 'required',
-            'region' => 'required',
+            'nombreMascota' => ['required','string','max:30'],
+            'ciudad' => ['required','string','max:60'],
+            'region' => ['required','string','max:60'],
             'estadoEsterilizacion' => 'required',
             'descripcion' => 'required',
-            'familiaBiologica' => 'required',
-            'vacunas' => 'required',
+            'idFamiliaBiologica' => 'required',
+            'vacunas' => ['required','string','max:20'],
             'descripcionSalud' => 'required',
-            'edad' => 'required',
-            'imagen' => 'mimes:jpeg,bpm,png'
+            'edad' => ['required','integer'],
+            'imagen' => ['required','mimes:jpeg,bpm,png'],
         ];
     }
 }
